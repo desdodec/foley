@@ -1,68 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
-
-    <style>
-        img {
-            max-width: 100%; /* Scale down for smaller screens */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #faf3f3; /* Very light pastel pink */
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2.5em;
-            background: linear-gradient(to right, #ff6363, #ffa600, #ffce00, #85e085, #63b6ff, #a285ff);
-            -webkit-background-clip: text;
-            color: transparent; /* Gradient text */
-            margin: 20px 0;
-        }
-
-        p {
-            font-family: 'Lora', serif;
-            font-size: 1.2em;
-            color: #333; /* A soft dark gray */
-            margin: 10px 20px;
-        }
-
-        .container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20em; /* Adjust for size */
-            font-family: 'Pacifico', cursive;
-            color: #000; /* White text */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
-            width: 75%; /* Cover 75% of image width */
-            text-align: center;
-        }
-    </style>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Page</title>
+    <title>Evolving Web Page</title>
+    <style>
+        /* Basic body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow: hidden; /* Prevent scrollbars when content moves */
+        }
+
+        /* Styling for the content wrapper */
+        #content {
+            position: absolute; /* Allows positioning anywhere */
+            transition: all 1s ease; /* Smooth transition for movement and changes */
+        }
+
+        /* Styling for the text */
+        #text {
+            font-size: 2em;
+            text-align: center;
+            margin: 0;
+            transition: color 1s ease; /* Smooth color transitions */
+        }
+
+        /* Styling for the image */
+        img {
+            display: block;
+            margin: 0 auto;
+            transition: all 1s ease; /* Smooth size and position transitions */
+        }
+    </style>
 </head>
 <body>
-    <h1>Happy Birthday John</h1>
-    <p>from Nigel, Helen & Stanley x</p>
-    <div class="container">
-        <img src="fast_rotating_image.gif" alt="Foley Image">
-        <div class="text-overlay">60</div>
+    <div id="content">
+        <h1 id="text">Hello, welcome to my evolving page!</h1>
+        <img id="image" src="your-image.jpg" alt="Evolving Image" width="300">
     </div>
+    <script>
+        // JavaScript for randomization
+        function randomizeContent() {
+            const content = document.getElementById('content');
+            const text = document.getElementById('text');
+            const image = document.getElementById('image');
+
+            // Randomize position
+            content.style.top = `${Math.random() * 80}vh`;
+            content.style.left = `${Math.random() * 80}vw`;
+
+            // Randomize text color
+            text.style.color = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+
+            // Randomize image size
+            image.style.width = `${Math.random() * 200 + 100}px`;
+
+            // Randomize text content
+            const messages = [
+                "Hello, welcome to my evolving page!",
+                "The page changes every minute!",
+                "Enjoy the randomness!",
+                "The design evolves dynamically!"
+            ];
+            text.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        // Random number generator for colors
+        function randomValue() {
+            return Math.floor(Math.random() * 256);
+        }
+
+        // Initial randomization
+        randomizeContent();
+
+        // Update every minute
+        setInterval(randomizeContent, 60000);
+    </script>
 </body>
 </html>
