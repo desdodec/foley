@@ -4,48 +4,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
 
+    <style>
+        img {
+            max-width: 100%; /* Scale down for smaller screens */
+            height: auto; /* Maintain aspect ratio */
+        }
 
-<style>
-  
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #faf3f3; /* Very light pastel pink */
+            margin: 0;
+            padding: 0;
+        }
 
-    img {
-        max-width: 100%; /* Scale down for smaller screens */
-        height: auto; /* Maintain aspect ratio */
-    }
+        h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.5em;
+            background: linear-gradient(to right, #ff6363, #ffa600, #ffce00, #85e085, #63b6ff, #a285ff);
+            -webkit-background-clip: text;
+            color: transparent; /* Gradient text */
+            margin: 20px 0;
+        }
 
-   body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #faf3f3; /* Very light pastel pink */
-        margin: 0;
-        padding: 0;
-    }
+        p {
+            font-family: 'Lora', serif;
+            font-size: 1.2em;
+            color: #333; /* A soft dark gray */
+            margin: 10px 20px;
+        }
 
-    h1 {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 2.5em;
-        background: linear-gradient(to right, #ff6363, #ffa600, #ffce00, #85e085, #63b6ff, #a285ff);
-        -webkit-background-clip: text;
-        color: transparent; /* Gradient text */
-        margin: 20px 0;
-    }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
 
-    p {
-        font-family: 'Lora', serif;
-        font-size: 1.2em;
-        color: #333; /* A soft dark gray */
-        margin: 10px 20px;
-    }
-</style>
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em; /* Adjust for size */
+            font-family: 'Pacifico', cursive;
+            color: #fff; /* White text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+            width: 75%; /* Cover 75% of image width */
+            text-align: center;
+        }
+    </style>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Simple Page</title>
 </head>
 <body>
-    <h1>Welcome to My Page</h1>
-    <p>This is my first HTML page on Git27ub Pages.</p>
-   <img src="fast_rotating_image.gif" alt="Foley Image">
-
+    <h1>Happy Birthday John</h1>
+    <p>from Nigel, Helen & Stanley x</p>
+    <div class="container">
+        <img src="fast_rotating_image.gif" alt="Foley Image">
+        <div class="text-overlay">60</div>
+    </div>
 </body>
 </html>
