@@ -41,10 +41,12 @@
         }
         #video-container {
             margin-top: 20px;
+            width: 120px;
+            height: 120px;
         }
         video {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
             border: 2px solid #fff;
             border-radius: 10px;
@@ -61,8 +63,8 @@
                 font-size: 0.7em;
             }
             video {
-                width: 80px;
-                height: 80px;
+                width: 100px;
+                height: 100px;
             }
         }
         @media (max-width: 480px) {
@@ -76,8 +78,8 @@
                 font-size: 0.6em;
             }
             video {
-                width: 60px;
-                height: 60px;
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -87,7 +89,9 @@
     <div id="language"></div>
     <div id="personal-message"></div>
     <div id="video-container">
-        <video src="foley.mp4" controls></video>
+        <video src="foley.mp4" controls poster="placeholder.jpg">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <script>
@@ -120,37 +124,6 @@
             fil: { happyBirthday: "Maligayang", birthday: "kaarawan", numberSuffix: "ika-" },
             bg: { happyBirthday: "Честит рожден ден", birthday: "", numberSuffix: "на" }, // Bulgarian
             fa: { happyBirthday: "تولدت مبارک", birthday: "", numberSuffix: "" }, // Persian
-        };
-
-        const languageNames = {
-            en: "English",
-            es: "Spanish",
-            fr: "French",
-            de: "German",
-            it: "Italian",
-            zh: "Chinese (Simplified)",
-            ja: "Japanese",
-            hi: "Hindi",
-            ru: "Russian",
-            ar: "Arabic",
-            ko: "Korean",
-            pt: "Portuguese",
-            sv: "Swedish",
-            nl: "Dutch",
-            pl: "Polish",
-            he: "Hebrew",
-            vi: "Vietnamese",
-            tr: "Turkish",
-            th: "Thai",
-            el: "Greek",
-            no: "Norwegian",
-            hu: "Hungarian",
-            cs: "Czech",
-            ro: "Romanian",
-            id: "Indonesian",
-            fil: "Filipino",
-            bg: "Bulgarian",
-            fa: "Persian",
         };
 
         const name = "John"; // Birthday person's name
