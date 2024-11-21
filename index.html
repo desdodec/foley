@@ -8,24 +8,58 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 20%;
+            margin: 0;
+            padding: 20px;
             background: linear-gradient(120deg, #fbc2eb, #a18cd1);
             color: #333;
-            font-size: 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        #message {
+            font-size: 2.5em;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 20px;
         }
         #name {
             font-weight: bold;
             color: #ff6347;
         }
         #language {
-            font-size: 0.5em;
+            font-size: 1em;
             color: #666;
             margin-top: 10px;
         }
         #personal-message {
-            font-size: 0.4em;
+            font-size: 0.8em;
             color: #888;
-            margin-top: 5px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            #message {
+                font-size: 2em;
+            }
+            #language {
+                font-size: 0.9em;
+            }
+            #personal-message {
+                font-size: 0.7em;
+            }
+        }
+        @media (max-width: 480px) {
+            #message {
+                font-size: 1.5em;
+            }
+            #language {
+                font-size: 0.8em;
+            }
+            #personal-message {
+                font-size: 0.6em;
+            }
         }
     </style>
 </head>
