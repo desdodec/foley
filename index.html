@@ -78,8 +78,8 @@
                 font-size: 0.6em;
             }
             video {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -126,6 +126,37 @@
             fa: { happyBirthday: "تولدت مبارک", birthday: "", numberSuffix: "" }, // Persian
         };
 
+        const languageNames = {
+            en: "English",
+            es: "Spanish",
+            fr: "French",
+            de: "German",
+            it: "Italian",
+            zh: "Chinese (Simplified)",
+            ja: "Japanese",
+            hi: "Hindi",
+            ru: "Russian",
+            ar: "Arabic",
+            ko: "Korean",
+            pt: "Portuguese",
+            sv: "Swedish",
+            nl: "Dutch",
+            pl: "Polish",
+            he: "Hebrew",
+            vi: "Vietnamese",
+            tr: "Turkish",
+            th: "Thai",
+            el: "Greek",
+            no: "Norwegian",
+            hu: "Hungarian",
+            cs: "Czech",
+            ro: "Romanian",
+            id: "Indonesian",
+            fil: "Filipino",
+            bg: "Bulgarian",
+            fa: "Persian",
+        };
+
         const name = "John"; // Birthday person's name
         const personalNames = ["Nigel", "Helen", "Stanley"]; // Names for the personal message
         const birthYear = 1964; // Birth year for John's 60th birthday
@@ -153,7 +184,7 @@
 
             // Construct the main message
             messageDiv.innerHTML = `${translatedText.happyBirthday} ${age}${translatedText.numberSuffix} ${translatedText.birthday} <span id="name">${name}</span>`;
-            languageDiv.innerHTML = `(${languageNames[randomLang]})`;
+            languageDiv.innerHTML = `Translation in: ${languageNames[randomLang]}`;
 
             // Construct the personal message
             personalMessageDiv.innerHTML = `Love from Nigel, Helen, and Stanley x`;
