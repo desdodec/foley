@@ -3,81 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolving Web Page</title>
+    <title>Happy Birthday</title>
     <style>
-        /* Basic body styling */
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            overflow: hidden; /* Prevent scrollbars when content moves */
-        }
-
-        /* Styling for the content wrapper */
-        #content {
-            position: absolute; /* Allows positioning anywhere */
-            transition: all 1s ease; /* Smooth transition for movement and changes */
-        }
-
-        /* Styling for the text */
-        #text {
-            font-size: 2em;
             text-align: center;
-            margin: 0;
-            transition: color 1s ease; /* Smooth color transitions */
+            margin-top: 20%;
+            background: linear-gradient(120deg, #fbc2eb, #a18cd1);
+            color: #333;
+            font-size: 2em;
         }
-
-        /* Styling for the image */
-        img {
-            display: block;
-            margin: 0 auto;
-            transition: all 1s ease; /* Smooth size and position transitions */
+        #name {
+            font-weight: bold;
+            color: #ff6347;
+        }
+        #language {
+            font-size: 0.5em;
+            color: #666;
+            margin-top: 10px;
+        }
+        #personal-message {
+            font-size: 0.4em;
+            color: #888;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="content">
-        <h1 id="text">Hello, welcome to my evolving page!</h1>
-        <img id="image" src="your-image.jpg" alt="Evolving Image" width="300">
-    </div>
+    <div id="message">Happy 60th Birthday <span id="name">John</span></div>
+    <div id="language"></div>
+    <div id="personal-message"></div>
+
     <script>
-        // JavaScript for randomization
-        function randomizeContent() {
-            const content = document.getElementById('content');
-            const text = document.getElementById('text');
-            const image = document.getElementById('image');
+        const translations = {
+            en: { happyBirthday: "Happy", birthday: "Birthday", numberSuffix: "th" },
+            es: { happyBirthday: "Feliz", birthday: "cumpleaños", numberSuffix: "º" },
+            fr: { happyBirthday: "Joyeux", birthday: "anniversaire", numberSuffix: "ème" },
+            de: { happyBirthday: "Alles Gute zum", birthday: "Geburtstag", numberSuffix: "." },
+            it: { happyBirthday: "Buon", birthday: "compleanno", numberSuffix: "º" },
+            zh: { happyBirthday: "生日快乐", birthday: "", numberSuffix: "岁" }, // Simplified Chinese
+            ja: { happyBirthday: "お誕生日おめでとうございます", birthday: "", numberSuffix: "歳" }, // Japanese
+            hi: { happyBirthday: "जन्मदिन मुबारक हो", birthday: "", numberSuffix: "वां" }, // Hindi
+            ru: { happyBirthday: "С днем", birthday: "рождения", numberSuffix: "-й" }, // Russian
+            ar: { happyBirthday: "عيد ميلاد", birthday: "سعيد", numberSuffix: "الـ" }, // Arabic
+            ko: { happyBirthday: "생일 축하합니다", birthday: "", numberSuffix: "번째" }, // Korean
+            pt: { happyBirthday: "Feliz", birthday: "aniversário", numberSuffix: "º" },
+            sv: { happyBirthday: "Grattis på", birthday: "födelsedagen", numberSuffix: "e" },
+            nl: { happyBirthday: "Gefeliciteerd met je", birthday: "verjaardag", numberSuffix: "ste" },
+            pl: { happyBirthday: "Wszystkiego najlepszego", birthday: "", numberSuffix: "." },
+            he: { happyBirthday: "יום הולדת שמח", birthday: "", numberSuffix: "" }, // Hebrew
+            vi: { happyBirthday: "Chúc mừng", birthday: "sinh nhật", numberSuffix: "" },
+            tr: { happyBirthday: "Doğum günün kutlu olsun", birthday: "", numberSuffix: "." },
+            th: { happyBirthday: "สุขสันต์วันเกิด", birthday: "", numberSuffix: "" }, // Thai
+            el: { happyBirthday: "Χρόνια πολλά για τα", birthday: "", numberSuffix: "" }, // Greek
+            no: { happyBirthday: "Gratulerer med", birthday: "dagen", numberSuffix: "-årsdagen" },
+            hu: { happyBirthday: "Boldog", birthday: "születésnapot", numberSuffix: "." },
+            cs: { happyBirthday: "Všechno nejlepší k", birthday: "narozeninám", numberSuffix: "." },
+            ro: { happyBirthday: "La mulți ani pentru", birthday: "", numberSuffix: "" },
+            id: { happyBirthday: "Selamat ulang tahun", birthday: "", numberSuffix: "ke-" },
+            fil: { happyBirthday: "Maligayang", birthday: "kaarawan", numberSuffix: "ika-" },
+            bg: { happyBirthday: "Честит рожден ден", birthday: "", numberSuffix: "на" }, // Bulgarian
+            fa: { happyBirthday: "تولدت مبارک", birthday: "", numberSuffix: "" }, // Persian
+        };
 
-            // Randomize position
-            content.style.top = `${Math.random() * 80}vh`;
-            content.style.left = `${Math.random() * 80}vw`;
+        const languageNames = {
+            en: "English",
+            es: "Spanish",
+            fr: "French",
+            de: "German",
+            it: "Italian",
+            zh: "Chinese (Simplified)",
+            ja: "Japanese",
+            hi: "Hindi",
+            ru: "Russian",
+            ar: "Arabic",
+            ko: "Korean",
+            pt: "Portuguese",
+            sv: "Swedish",
+            nl: "Dutch",
+            pl: "Polish",
+            he: "Hebrew",
+            vi: "Vietnamese",
+            tr: "Turkish",
+            th: "Thai",
+            el: "Greek",
+            no: "Norwegian",
+            hu: "Hungarian",
+            cs: "Czech",
+            ro: "Romanian",
+            id: "Indonesian",
+            fil: "Filipino",
+            bg: "Bulgarian",
+            fa: "Persian",
+        };
 
-            // Randomize text color
-            text.style.color = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+        const name = "John"; // Birthday person's name
+        const personalNames = ["Nigel", "Helen", "Stanley"]; // Names for the personal message
+        const birthYear = 1964; // Birth year for John's 60th birthday
+        const birthdayMonth = 11; // November
+        const birthdayDay = 21; // 21st of November
 
-            // Randomize image size
-            image.style.width = `${Math.random() * 200 + 100}px`;
+        const messageDiv = document.getElementById("message");
+        const languageDiv = document.getElementById("language");
+        const personalMessageDiv = document.getElementById("personal-message");
 
-            // Randomize text content
-            const messages = [
-                "Hello, welcome to my evolving page!",
-                "The page changes every minute!",
-                "Enjoy the randomness!",
-                "The design evolves dynamically!"
-            ];
-            text.textContent = messages[Math.floor(Math.random() * messages.length)];
+        function calculateAge() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const birthdayThisYear = new Date(currentYear, birthdayMonth - 1, birthdayDay);
+
+            // Check if today's date is on or after the birthday
+            return today >= birthdayThisYear ? currentYear - birthYear : currentYear - birthYear - 1;
         }
 
-        // Random number generator for colors
-        function randomValue() {
-            return Math.floor(Math.random() * 256);
+        function updateMessage() {
+            const age = calculateAge();
+            const languages = Object.keys(translations);
+            const randomLang = languages[Math.floor(Math.random() * languages.length)];
+            const translatedText = translations[randomLang];
+
+            // Construct the main message
+            messageDiv.innerHTML = `${translatedText.happyBirthday} ${age}${translatedText.numberSuffix} ${translatedText.birthday} <span id="name">${name}</span>`;
+            languageDiv.innerHTML = `(${languageNames[randomLang]})`;
+
+            // Construct the personal message
+            personalMessageDiv.innerHTML = `Love from Nigel, Helen, and Stanley x`;
         }
 
-        // Initial randomization
-        randomizeContent();
+        // Initial display
+        updateMessage();
 
-        // Update every minute
-        setInterval(randomizeContent, 60000);
+        // Update the message every minute (60,000 milliseconds)
+        setInterval(updateMessage, 60000);
     </script>
 </body>
 </html>
