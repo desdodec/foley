@@ -89,7 +89,7 @@
     <div id="language"></div>
     <div id="personal-message"></div>
     <div id="video-container">
-        <video src="foley.mp4" autoplay loop muted playsinline>
+        <video src="foley.mp4" autoplay loop muted playsinline disablepictureinpicture>
             Your browser does not support the video tag.
         </video>
     </div>
@@ -152,7 +152,7 @@
             const translatedText = translations[randomLang];
 
             // Construct the main message
-            messageDiv.innerHTML = `${translatedText.happyBirthday} ${age} ${translatedText.numberSuffix} ${translatedText.birthday} <span id="name">${name}</span>`;
+            messageDiv.innerHTML = `${translatedText.happyBirthday} ${age}${translatedText.numberSuffix} ${translatedText.birthday} <span id="name">${name}</span>`;
             languageDiv.innerHTML = `(${languageNames[randomLang]})`;
 
             // Construct the personal message
